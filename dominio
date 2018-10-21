@@ -1,0 +1,30 @@
+(define (domain ruta_escape)
+ (:requiriments :strips :typing)
+ (:types ubicacion localizable - objeto
+        persona vehiculo area - localizable)
+)
+
+(:predicates
+ (at ?persona - localizable ?loc- ubicacion )
+ (in ?persona1 - persona  ?unvehiculo - vehiculo)
+ (disponible ?unvehiculo - vehiculo )
+ (evacuar ?persona - persona)
+ (distancia ?desde - ubicacion ?para -ubicacion)
+ (maximacapacidad ?unvehiculo - vehiculo)
+
+)
+
+(:action move
+  :parameters (?persona - persona
+               ?loc - ubicacion
+               ?unvehiculo - vehiculo
+               ?origen - ubicacion
+               ?destino - ubicacion
+  )
+  :precondition (and (at start ( at ?vehiculo ?origen))
+                (at start (> (maximacapacidad ?vehiculo) (0)))
+                (at start(disponible ?unvehiculo)))
+
+  :effect (and (at start (not (at ?unvehiculo ?origen)))
+           (at end (at ?unvehiculo ?destino))
+  )
