@@ -1,0 +1,30 @@
+(define (problem evacuar)
+(:domain ruta_escape)
+
+ (:objets
+   persona1 - persona
+   l1 - ubicacion
+   l2 - ubicacion
+   vehiculo1 - vehiculo
+
+ )
+ (:init
+  ;;vehiculo inicio
+ (disponible vehiculo)
+ (=(maximacapacidad vehiculo)25)
+ (=persona1 vehiculo)0           )
+
+ ;; emergencia init
+ (=(persona1 l1) 1)
+
+ ;;evacuacion init
+
+ (=(maximacapacidad l2)150)
+
+ ;;ubicacion init
+ (at persona1 l1)
+ (at persona1 l2)
+
+(:goal
+(and(ayuda persona1)))
+)
